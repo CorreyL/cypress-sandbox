@@ -15,9 +15,9 @@ const searchUrl = (searchQuery) => {
   return `${websitePath}/search/?q=${searchQuery}`;
 };
 
-describe('template spec', () => {
+describe('search for sweatpants', () => {
   beforeEach(() => {
-    cy.visit(websitePath);
+    cy.visit(searchUrl('sweatpants'));
   });
 
   it('passes', () => {
