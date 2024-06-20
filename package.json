@@ -2,5 +2,8 @@
   "name": "cypress-sandbox",
   "version": "0.0.0",
   "description": "",
-  "author": "CorreyL"
+  "author": "CorreyL",
+  "devDependencies": {
+    "cypress": "^13.12.0"
+  }
 }
