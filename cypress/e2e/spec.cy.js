@@ -16,7 +16,11 @@ const searchUrl = (searchQuery) => {
 };
 
 describe('template spec', () => {
+  beforeEach(() => {
+    cy.visit(websitePath);
+  });
+
   it('passes', () => {
-    cy.visit('https://example.cypress.io')
+
   })
 })
