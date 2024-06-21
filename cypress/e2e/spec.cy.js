@@ -16,7 +16,7 @@ const searchUrl = (searchQuery) => {
 };
 
 describe('search for sweatpants', () => {
-  beforeEach(() => {
+  before(async () => {
     cy.visit(searchUrl('sweatpants'));
   });
 
