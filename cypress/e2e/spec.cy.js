@@ -18,6 +18,7 @@ const searchUrl = (searchQuery) => {
 describe('search for sweatpants', () => {
   before(async () => {
     cy.visit(searchUrl('sweatpants'));
+    await cy.wait(3000);
   });
 
   it('passes', () => {
