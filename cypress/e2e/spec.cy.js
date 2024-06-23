@@ -35,5 +35,5 @@ describe('search for sweatpants', () => {
       // There should have been at least one result
       expect(Number.parseInt(numberOfSearchResults)).to.be.greaterThan(0);
     });
-  })
+  });
 })
