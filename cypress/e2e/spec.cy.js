@@ -37,9 +37,24 @@ describe('search for sweatpants', () => {
     });
   });
 
-  it('put the prices of all results into an array', () => {
+  it.only('put the prices of all results into an array', () => {
+    const pricesFromSearch = [];
     cy.get('.fr-product-grid').should((result) => {
-
+      // There should only be one DOM element that matches the above selector
+      expect(result).to.have.length(1);
+      const productResults = result[0].children;
+      for (const product of productResults) {
+        pricesFromSearch.push(product.querySelectorAll('.fr-price-currency')[1].children[1].textContent);
+      }
+      // There should be at least one search result
+      expect(pricesFromSearch).to.have.length.greaterThan(0);
+      // All elements of the array should be prices
+      const priceRegex = /^\d+(\.\d{2})$/;
+      pricesFromSearch.forEach((price) => {
+        // Each price should be a number
+        expect(Number.isNaN(price)).to.be.false;
+        expect(price).to.match(priceRegex);
+      });
     });
   });
 })
