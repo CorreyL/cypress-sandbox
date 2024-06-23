@@ -36,4 +36,10 @@ describe('search for sweatpants', () => {
       expect(Number.parseInt(numberOfSearchResults)).to.be.greaterThan(0);
     });
   });
+
+  it('put the prices of all results into an array', () => {
+    cy.get('.fr-product-grid').should((result) => {
+
+    });
+  });
 })
