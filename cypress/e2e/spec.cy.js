@@ -39,6 +39,15 @@ describe('search for sweatpants', () => {
 
   it.only('put the prices of all results into an array', () => {
     const pricesFromSearch = [];
+    cy.get('div.fr-load-more').then(async (result) => {
+      // The div.fr-load-more only shows up if there are more than 24 search
+      // results, so we don't want to assert its existence
+      if (result.length > 0) {
+        result[0].click();
+        await cy.wait(2000);
+      }
+    });
+
     cy.get('.fr-product-grid').should((result) => {
       // There should only be one DOM element that matches the above selector
       expect(result).to.have.length(1);
