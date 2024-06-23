@@ -16,7 +16,7 @@ const searchUrl = (searchQuery) => {
 };
 
 describe('search for sweatpants', () => {
-  before(async () => {
+  beforeEach(async () => {
     cy.visit(searchUrl('sweatpants'));
     await cy.wait(3000);
   });
@@ -37,7 +37,7 @@ describe('search for sweatpants', () => {
     });
   });
 
-  it.only('put the prices of all results into an array', () => {
+  it('put the prices of all results into an array', () => {
     const pricesFromSearch = [];
     cy.get('div.fr-load-more').then(async (result) => {
       // The div.fr-load-more only shows up if there are more than 24 search
